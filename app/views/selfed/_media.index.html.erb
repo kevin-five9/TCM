@@ -1,0 +1,15 @@
+
+Photos</br>
+<table class="table table-striped table-bordered table-condensed">
+<tbody>
+<% @objs.each do |obj| %>
+<tr>
+<td>
+<%= image_tag obj.item.url(:thumb) %>
+</td><td>
+<%=link_to_ns obj.title, obj%>
+</td>
+<td><%= edit_delete(obj.id) %></td>
+</tr>
+<% end %>
+</tbody></table>

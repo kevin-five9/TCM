@@ -1,0 +1,8 @@
+  Manager for <%= @obj.fname %>
+  <%= @obj.manager.fname if @obj.manager  %>
+
+
+  Team member for <%= @obj.fname %>
+  <% @obj.teams.each do |team| %>
+  <%= team.name %></br>
+  <% end %>

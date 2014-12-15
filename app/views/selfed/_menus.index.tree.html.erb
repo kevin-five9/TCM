@@ -1,0 +1,13 @@
+
+<%= display(tts('menu tree'))%></br>
+<% Menu.top.each do |amenu| %>
+  <%= render 'shared/menu_item', amenu:amenu %>
+  <%= img_new_child(amenu.id) %>
+  </br>
+  <% amenu.children.each do |amenu| %>
+    |__  
+    <%= render 'shared/menu_item', amenu:amenu %> 
+    <%= img_delete(amenu.id) %>    
+    </br>
+  <% end %>
+<% end %>

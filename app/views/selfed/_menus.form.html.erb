@@ -1,0 +1,42 @@
+<% ns=get_namespace() %>
+<%if ns.nil?%>
+<% obj_ns=@obj %>
+<% else %>
+<% obj_ns=[ns,@obj] %>
+<% end %>
+
+<%if @obj.id.nil? && @obj.dad.nil?%>
+<%# This is new or add %>
+  <%= display_error("No Parent selected") %>
+<% else %>
+  <%= semantic_bootstrap_nested_form_for(obj_ns) do |f| %>
+  <%= f.inputs do %>
+    <%= f_input(f,'name','name') %> 
+    <%= f_input(f,'url','url') %>      
+    <%= f_input(f,'active','active') %>  
+
+    <%if @obj.id.nil? %> <!--New/Add  -->
+      <div class="form-inline">     
+      <%= f.label(tt('parent') + ':' + @obj.dad.name ) %>
+      </div>
+      <%= f_input(f,'pid:h','pid') %> 
+    <% else %>  <!--  Edit  -->
+      <%= f_input(f,'order_by',tt('order_by')) %>      
+      <% if @obj.id > 10 %>
+        <div class="form-inline"> 
+<%# f.input :authors, :as => :check_boxes, :collection => User.order("last_name ASC").all %>  
+        <%#= f_input(f,'dad:r',tts('parent menu')) %>             
+        <%= f.input(:dad,:as => :radio, 
+          :collection =>Menu.top,
+          :label =>tts('parent menu')) %> 
+        </div>
+      <% end %> 
+      <div class="row"></div>      
+    <% end %> 
+    <div class="form-inline">   
+    <%= f_input(f,'wpage:r',tt('page')) %> 
+    </div>    
+  <% end %>  
+  <%= button_submit(f) %>
+  <% end %>  
+<%end%> 

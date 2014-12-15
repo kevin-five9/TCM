@@ -1,0 +1,8 @@
+<% if params[:type_id].nil? || params[:type_id].empty? %>
+<% data=Article.all %>
+<% else %>
+<% data=Type.find(params[:type_id]).articles %>
+<% end %>
+<% columns=['title','content'] %>
+<% bottom_string='' %>
+<%= slide_columns(data,columns,bottom_string) %>
