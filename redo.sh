@@ -209,7 +209,8 @@ elif [ "x${act}x" = "xallx" ]; then
 	install_gems	
 
 	#cfg_route # Let rails add more routes
-	[-f ./crt_prj.sh] && . ./crt_prj.sh && create_project
+	CRT="$com/crt_prj.sh"
+	[ -f $CRT ] && . $CRT && create_project
 	#cfg_route # copy full routes
 	add_page_route
 	cfg_css_js
