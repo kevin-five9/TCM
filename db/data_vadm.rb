@@ -74,7 +74,12 @@ view_adm:[
     {name:'gallery',action_scope:'show:medium:gallery medium list:media',
       cols:"name;description;media:c",
       caps:"name;description;photo"
-    },        
+    },  
+############## Task View 
+    {name:'task',action_scope:'index'
+    },  
+    {name:'task',action_scope:'index:tree'
+    },      
 ############## Menu View     
     {name:'menu',action_scope:'index',
       cols:"name;title;url;parent.name;active",

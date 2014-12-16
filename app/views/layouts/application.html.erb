@@ -4,12 +4,13 @@
   <title><%= get_web_title() %></title>
   <!--link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css-->
   <!--script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script-->
+  
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body background="xzyz/a.jpg">
+<body>
 <%= menu_bar %>
 <div class='container-fluid' style='padding-top: 1px'>
   <% flash.each do |name, msg| %>
@@ -25,8 +26,8 @@
     <div class="col-md-1"></div>
   </div>
 </div>
-<script type="text/javascript"> 
+<script> 
 $(function(){ 
-   $('.carousel').carousel(interval: 2000); 
+   //$('.carousel').carousel(interval: 2000); 
 }); 
 </script> 

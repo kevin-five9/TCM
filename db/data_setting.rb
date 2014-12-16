@@ -16,9 +16,12 @@ setting:[
 # column:dad, type:rdio, data:menus.top
 #
     {var:'contact_info',value:''},
-    {var:'browser_title',value:'XZYZ'},
-    {var:'body_header',value:'XZYZ 1981-1984'},     
+    {var:'browser_title',value:'协调网'},
+    {var:'body_header',value:'协调网'},     
     {var:'per_page',value:'20'}, 
+    # Control delete/edit action here or in view+adm?
+    {var:'delete_on_index',value:'1'}, # have delete action on index? 
+    {var:'edit_on_index',value:'1'}, # have edit action on index?        
     {var:'exclude_page_type',value:'news,notice'},     
     {var:'news_header_title',value:'News(XinWen)'},
     {var:'news_header_description',value:'News(XinWen)'},

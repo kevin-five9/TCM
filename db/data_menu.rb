@@ -13,6 +13,8 @@ module DATA_DEF
   event: "事件", 
   widget: "积木",
   template: "模板",
+  customer: "成功案例",  
+  help: "帮助文档",  
 
   media: "多媒体",  
   gallery: "影集", 
@@ -33,16 +35,9 @@ module DATA_DEF
   admin: "管理员", 
   dev: "开发者",  
   user: "用户",
-  new: "新建",  
-  ############# word #############  
-  word: "单词",  
-  book: "教材",    
-  newword: "新单词",  
-  forget: "上次记错单词", 
-  enforce: "巩固记忆", 
-  all_order: "所有、按字母顺序",   
-  all_random: "所有、随机次序",
-  spell: "拼写" # for all above    
+  new: "新建", 
+  task: "协调活动&任务" 
+ 
   }
 
 DATA_MENU={
@@ -51,15 +46,13 @@ menu:[
   # Create top level menus
     {name:tt[:sysadm]},  #1
     {name:tt[:page_adm]}, #2
-    {name:tt[:index]}, #3   
-    {name:tt[:news]}, #4
-    {name:tt[:event]},#5
-    {name:tt[:funlife]},#6 
-    {name:tt[:classified]},#7 
-    {name:tt[:photo]},#8         
-    {name:tt[:health],active:false}, #9
-    {name:tt[:word]}, #10
-    {name:tt[:book]}, #11
+    {name:tt[:index]}, #3  
+    {name:tt[:task]},#4
+    {name:tt[:news]}, #5
+    {name:tt[:event]},#6
+    {name:tt[:customer]},#7 
+    {name:tt[:help]},#8 
+    {name:tt[:funlife]},#9     
     {name:'Top level Menu 12',active:false},
     {name:'Top level Menu 13',active:false},  
     {name:'Top level Menu 14',active:false},    
@@ -82,25 +75,23 @@ menu:[
     {pid:2,name:tt[:widget],url:'/admin/widgets'},
     {pid:2,name:tt[:template],url:'/admin/templates'}, 
 
-    {pid:4,name:tt[:news],url:'/news/news'},#news
-    {pid:4,name:tt[:notice],url:'/news/notice'},#news
+    {pid:4,name:'Task',url:'/tasks'},  
+    {pid:4,name:'Task History',url:'/task_hists'},  
+    {pid:4,name:'Task Times',url:'/task_times'},      
+    {pid:5,name:tt[:news],url:'/news/news'},   
+    {pid:5,name:tt[:notice],url:'/news/notice'}, 
 
-    {pid:5,name:tt[:all],url:'/admin/events?scope=slide'},#event 
-    {pid:6,name:tt[:funlife],url:"/news/#{tt[:funlife]}"},#funlife
-    {pid:7,name:tt[:all],url:'/news/all'},#classified        
-  
-    {pid:8,name:tt[:all],url:'/admin/media?scope=slide'}, 
-    {pid:8,name:tt[:gallery],url:'/admin/galleries'}, 
-    {pid:8,name:tt[:new],url:'/admin/media/new'},
-    {pid:10,name:tt[:newword],url:'/admin/words'}, 
-    {pid:10,name:tt[:forget],url:'/admin/words'},     
-    {pid:10,name:tt[:enforce],url:'/admin/words'}, 
-    {pid:10,name:tt[:all_order],url:'/admin/words'}, 
-    {pid:10,name:tt[:all_random],url:'/admin/words'},   
-    {pid:11,name:tt[:all],url:'/admin/books'},      
+    {pid:6,name:tt[:all],url:'/admin/events?scope=slide'}, 
+    {pid:7,name:'Task',url:"/tasks"},
+
+    {pid:9,name:tt[:funlife],url:"/news/#{tt[:funlife]}"},#funlife
+    {pid:9,name:tt[:news_notice],url:'/news/all'},#classified      
+    {pid:9,name:tt[:news],url:'/news/news'},#news
+    {pid:9,name:tt[:notice],url:'/news/notice'},#news
+    {pid:9,name:tt[:event],url:'/admin/events?scope=slide'},#event        
   ],
 wpage:[                   
-    {menu_pid:3,title:tt[:index],url:'/index',widget_id:1}
+    {menu_pid:3,title:tt[:index],url:'/index',widget_id:1},
   ],
 
 type:[

@@ -5,7 +5,7 @@ class AdminController < ApplicationController
    
   include ApplicationHelper
   include CrudHelper 
-
+  
   #skip_authorize_resource :devise
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, notice:tt("denied")
@@ -15,11 +15,16 @@ class AdminController < ApplicationController
     #:laert=>exception.message
   end 
   #rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-
+  def login_in()
+  # Developemt, debug  
+    current_user ||=User.find(8)
+    sign_in current_user   
+  end  
   before_filter do  # fix ActiveModel::ForbiddenAttributesError
     resource = controller_name.singularize.to_sym
     method = "get_params"
     params[resource] &&= send(method) if respond_to?(method, true)
+    login_in()
   end 
   load_and_authorize_resource 
   def record_not_found  
@@ -32,4 +37,5 @@ class AdminController < ApplicationController
   def after_sign_in_path_for(user)
     admin_menus_path
   end 
+
 end

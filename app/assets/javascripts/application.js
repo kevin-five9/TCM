@@ -10,8 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery211.min.js
+//= require bootstrap320.min.js
 //= require ckeditor/init
-//= require_tree .                              
+//= require angular.min.js 
+//  require jquery_ujs
+//  require turbolinks
+//  jquery.toastmessage.js  
+                        

@@ -1,7 +1,7 @@
 #!/bin/bash
 act=$1
 SRV="/www"
-PRJ="easy-web"
+PRJ="xietiao"
 DST="$SRV/$PRJ"
 DBPWD="dbroot"
 DBNAME="prd_db"
@@ -88,12 +88,13 @@ echo <<EOF
 EOF
 }
 
+
 copy_templates(){
 	cd $DST
 	echo "copy_templates, database.yml, application.rb"
 	cp -f  $com/config/application.rb    config/	
 	cp -r  $com/lib .
-	cp $com/config/database.yml config/
+	cp -f  $com/config/database.yml config/
 }
 
 cfg_route_old(){
@@ -143,13 +144,13 @@ cfg_data(){
 	# Create database, mysql -u user -p -e 'SQL Query' database
 	#mysql -uroot -p$DBPWD -e "drop database $DBNAME"
 	#mysql -uroot -p$DBPWD -e "create database $DBNAME"
-	rake db:drop
-	rake db:create	
+	#rake db:drop
+	#rake db:create	
 	#cp -f  $com/db/seeds.rb db/
 	cp -f  $com/db/*.rb db/	
 	rake db:migrate	
-	rake db:seed
-	#rake db:reset
+	#rake db:seed
+	rake db:reset
 	#rake db:migrate RAILS_ENV=$ENV
 	#rake db:seed RAILS_ENV=$ENV
 	echo "Created tables and inserted data"			
@@ -175,12 +176,11 @@ copy_files(){
 	cp -f  $com/config/zh-CN.yml    config/locales/
 	cp -f  $com/config/devise.zh-CN.yml    config/locales/	
 	cp -f  $com/config/routes.rb    config	
-
-
 	cp -r  $com/app/*      app/
 	#cp -r  $com/mailers     app/
 	#cp -f  $com/gem/Gemfile.lock .
 }
+
 
 if [ "x$com" = "x." ];then
 	com=$(pwd)
@@ -205,12 +205,12 @@ elif [ "x${act}x" = "xallx" ]; then
 	#cfg_db_yml	
 	rvm gemset list
 	cp -f $com/rvmrc $DST
-	copy_templates
 	install_gems	
-
+	copy_templates
 	#cfg_route # Let rails add more routes
+	cd  $DST
 	CRT="$com/crt_prj.sh"
-	[ -f $CRT ] && . $CRT && create_project
+	[ -f $CRT ] && . $CRT && create_project	
 	#cfg_route # copy full routes
 	add_page_route
 	cfg_css_js

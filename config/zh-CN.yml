@@ -34,6 +34,10 @@ zh-CN:
   dft: ""    
   sure: "确定"        
   submit: "保 存"
+  child: "子项目"
+  reply: "回复" 
+  vote: "发表意见"    
+  exclude: "排除" 
 
   description: "描述"  
   type: "类型"

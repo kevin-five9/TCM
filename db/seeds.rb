@@ -5,7 +5,7 @@
 require File.expand_path('../data_menu.rb', __FILE__)
 require File.expand_path('../data_vadm.rb', __FILE__)
 require File.expand_path('../data_tpl.rb', __FILE__)
-require File.expand_path('../data_xzyz.rb', __FILE__)
+require File.expand_path('../data_xt.rb', __FILE__)
 require File.expand_path('../data_setting.rb', __FILE__)
 include DATA_DEF
 
